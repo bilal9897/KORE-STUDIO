@@ -103,8 +103,14 @@ Nothing here is prompted in this file. Flow prompts come from the director in ch
 Code-only (no asset; V02 hoodie lift is now a code lift from A01 + A19): khaki shapes and quarter-cut disc, ghost titles, chrome title, clouds and peaks (SVG + parallax), pale-blue mesh lines, printed graphic and squeegee for the signature, clock, queue ticket, SOLD OUT stamps, woven label loader.
 **Batch 1** (nothing attached, run together): A01, A07, A08, A09, A10, A11, A19. **Batch 2** (after A01 and the fronts are approved; attach A01 or the matching front): A02, A13, A14, A15, A12, A03–A06, A18, V01. **Dropped:** A16, A17 (cap and socks backs) and V02. Total 17 stills + 1 film.
 
+## Asset rules (user, 2026-10-13)
+1. **No cutouts by Claude.** Never run `npm run cutout` or make transparent PNGs, and never convert JPG to PNG. The user supplies any PNG cut-out (e.g. `kerb-plinth.png`); use it as it is.
+2. **Watermark removal is automatic, per batch.** When a batch of stills lands in `raw/`, run `clean-mark` on the whole batch in one run (originals backed up to `raw/_orig`). Do not open or view each image. Report only the cleaned file names, in one line.
+3. **Prompts:** when the user pastes the Flow prompts they ran, record them under "Prompts (as run)", grouped by batch. Claude never writes Flow or Veo prompts.
+4. Replies stay 2–3 lines.
+
 ## 7. Prompts (as run)
-*(empty. When the user pastes back the prompts that were run: asset ID · date · prompt · attachments, word for word.)*
+*(grouped by batch; empty. When the user pastes back the prompts that were run: asset ID · date · prompt · attachments, word for word.)*
 
 ## 8. Different from the last sites
 Layout codes: none shared with Days 16–18 (checked). The look, palette and type-pair comparison goes in `docs/SITES-LOG.md` ("Uniqueness checks") at the end of the day; Day 19's row is not in this copy of the kit, so sync the kit first. Motion codes to confirm against every earlier hero and signature in Round 2: hero M30 (dial) and the print signature (new code, to be added to MOTION-MENU after the build).
