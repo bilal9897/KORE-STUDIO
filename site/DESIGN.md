@@ -70,41 +70,38 @@ Colour dots that swap the product (push transition) · size chips with a sliding
 ## 4. Night section: the curved tee carousel
 - **What it is:** a row of seven pieces on a shallow cylinder, curving toward the viewer at the middle and away at the sides (CSS 3D `rotateY` per slot on a pinned stage, `perspective` on the parent). Behind it: the giant chrome title, the `New Arrival` pill, a red `ORIGINALS` word, clouds and peaks (code, parallax). At the end the hoodie lifts off the kerb plinth.
 - **How it moves:** scroll rotates the cylinder (scrubbed, reversible), so the slot at the centre faces the camera and the one that turns away shows its **back view** halfway round. Idle: the cylinder keeps a slow constant drift, and a scroll adds speed on top. No big jumps at any scroll speed.
-- **Which stills it uses (no new ones):** the **same 6 line-up stills** (hoodie, puffer, tee, cargo, cap, socks): each has a **front** and a **back** still, seven slots are filled by repeating the first piece at the far end. Front faces show the front still; once a slot rotates past 90° it swaps to the piece's own **back still**. The back is a real back view, **never a CSS mirror**, so printed text is never reversed. Slots with `#E9EDEF` use the chalk colourway, `#141516` the ink one.
+- **Which stills it uses (no new ones):** the **same 6 line-up stills (4 with real backs)** (hoodie, puffer, tee, cargo, cap, socks): each has a **front** and a **back** still, seven slots are filled by repeating the first piece at the far end. Front faces show the front still; once a slot rotates past 90° it swaps to the piece's own **back still**. Cap and socks have no back still: their far-side faces show the flat inside-colour fallback and they sit in slots that never turn past 80°. Tee, puffer, cargo and hoodie backs are real back views, **never a CSS mirror**, so printed text is never reversed. Slots with `#E9EDEF` use the chalk colourway, `#141516` the ink one.
 - **Fallback if backs are not generated:** the back faces show a plain-colour inside of the piece (a flat darker version of the cut-out) and the carousel only turns up to 80°, so the missing back never shows.
 
 ## 5. Reel time table (hand-scrolled, target 25–40 s total including loader)
 Loader 3 s · Hero 4 · Line-up 6 (pieces step) · Clock 2 · Product 5 (two swatch clicks, Add to cart) · Print 5 · Fabric 3 · Night 6 · Shop 2 · Looks 3 · Fit 2 · Featured 2 · Join 2 · Footer 1. Total about 46 s of material at a hand pace; the user can scroll the quiet sections faster. Pinned sections: line-up, print, night, looks.
 
-## 6. Lean assets (about 20 stills, 2 Veo films at most)
+## 6. Lean assets (2 batches: 16 stills + 1 Veo film)
 Nothing here is prompted in this file. Flow prompts come from the director in chat; Claude never writes them. All stills: studio-white background (`#E7EBF0` look), invisible mannequin, no people, one shared grade. Colourways are **pixel-aligned edits of the hoodie master** (attach it to the edit). Cut-outs are made locally with `npm run cutout` from the stills (no extra Flow images).
 
 | Batch | ID | Name | What it is | Aspect | Save as | Code fallback |
 |---|---|---|---|---|---|---|
 | 1 | A01 | `hoodie-front` | Drop 07 hoodie, front, invisible mannequin: **master** (hero card, line-up, product, print, night, plinth) | 4:5 | `raw/hoodie-front.jpg` | none: this is the master, redo until it is right |
-| 1 | A02 | `hoodie-back` | same hoodie, back view (night carousel, hero flip) | 4:5 | `raw/hoodie-back.jpg` | CSS tint of the front's inside (carousel stops at 80°) |
-| 1 | V01 | `hero-turn` | **Veo film**: hoodie turning on its own, start frame = A01, 6–8 s loop | 16:9 (hoodie centred, cropped by code) | `raw/hero-turn.mp4` | front ↔ back 3D flip with tilt from A01 + A02 |
+| 2 | A02 | `hoodie-back` | same hoodie, back view (night carousel, hero flip) | 4:5 | `raw/hoodie-back.jpg` | CSS tint of the front's inside (carousel stops at 80°) |
+| 2 | V01 | `hero-turn` | **Veo film**: hoodie turning on its own, start frame = A01, 6–8 s loop | 16:9 (hoodie centred, cropped by code) | `raw/hero-turn.mp4` | front ↔ back 3D flip with tilt from A01 + A02 |
 | 2 | A03 | `hoodie-ember` | colourway edit of A01 (`#EC6A2C`) | 4:5 | `raw/hoodie-ember.jpg` | canvas multiply recolour of A01 |
 | 2 | A04 | `hoodie-chalk` | colourway edit (`#F6F6F4`) | 4:5 | `raw/hoodie-chalk.jpg` | canvas recolour of A01 |
 | 2 | A05 | `hoodie-navy` | colourway edit (`#1B2537`); used in product + print + fabric | 4:5 | `raw/hoodie-navy.jpg` | canvas recolour of A01 |
 | 2 | A06 | `hoodie-teal` | colourway edit (`#2F5A5E`), shop / featured | 4:5 | `raw/hoodie-teal.jpg` | canvas recolour of A01 |
-| 3 | A07 | `puffer-front` | puffer jacket, ink, same set-up | 4:5 | `raw/puffer-front.jpg` | none (line-up piece); drop it from the 6 if it fails |
-| 3 | A08 | `tee-front` | tee, ink | 4:5 | `raw/tee-front.jpg` | none |
-| 3 | A09 | `cargo-front` | cargo pants, charcoal `#3A3C40` | 4:5 | `raw/cargo-front.jpg` | none |
-| 3 | A10 | `cap-front` | cap, red `#E3262D` | 4:5 | `raw/cap-front.jpg` | none |
-| 3 | A11 | `socks-front` | socks, chalk `#E9EDEF` | 4:5 | `raw/socks-front.jpg` | none |
-| 3 | A12 | `tee-chalk` | tee in chalk/grey (`#E9EDEF`), carousel + shop | 4:5 | `raw/tee-chalk.jpg` | canvas recolour of A08 |
-| 4 | A13 | `puffer-back` | back view | 4:5 | `raw/puffer-back.jpg` | inside-colour fallback, section 4 |
-| 4 | A14 | `tee-back` | back view | 4:5 | `raw/tee-back.jpg` | same |
-| 4 | A15 | `cargo-back` | back view | 4:5 | `raw/cargo-back.jpg` | same |
-| 4 | A16 | `cap-back` | back view | 4:5 | `raw/cap-back.jpg` | same |
-| 4 | A17 | `socks-back` | back view | 4:5 | `raw/socks-back.jpg` | same |
-| 5 | A18 | `fabric-macro` | close-up of the hoodie's knit and ribbing (fabric + print) | 3:2 | `raw/fabric-macro.jpg` | zoomed crop of A01 (soft) |
-| 5 | A19 | `kerb-plinth` | empty concrete kerb plinth, **transparent cut-out** | 3:2 | `raw/kerb-plinth.png` | CSS concrete block with grain |
-| 5 | V02 | `hoodie-lift` | *(optional, skip first)* **Veo film**: hoodie lifts off the plinth | 16:9 | `raw/hoodie-lift.mp4` | code lift (translate + shadow) from A01 + A19 |
+| 1 | A07 | `puffer-front` | puffer jacket, ink, same set-up | 4:5 | `raw/puffer-front.jpg` | none (line-up piece); drop it from the 6 if it fails |
+| 1 | A08 | `tee-front` | tee, ink | 4:5 | `raw/tee-front.jpg` | none |
+| 1 | A09 | `cargo-front` | cargo pants, charcoal `#3A3C40` | 4:5 | `raw/cargo-front.jpg` | none |
+| 1 | A10 | `cap-front` | cap, red `#E3262D` | 4:5 | `raw/cap-front.jpg` | none |
+| 1 | A11 | `socks-front` | socks, chalk `#E9EDEF` | 4:5 | `raw/socks-front.jpg` | none |
+| 2 | A12 | `tee-chalk` | tee in chalk/grey (`#E9EDEF`), carousel + shop | 4:5 | `raw/tee-chalk.jpg` | canvas recolour of A08 |
+| 2 | A13 | `puffer-back` | back view | 4:5 | `raw/puffer-back.jpg` | inside-colour fallback, section 4 |
+| 2 | A14 | `tee-back` | back view | 4:5 | `raw/tee-back.jpg` | same |
+| 2 | A15 | `cargo-back` | back view | 4:5 | `raw/cargo-back.jpg` | same |
+| 2 | A18 | `fabric-macro` | close-up of the hoodie's knit and ribbing (fabric + print) | 3:2 | `raw/fabric-macro.jpg` | zoomed crop of A01 (soft) |
+| 1 | A19 | `kerb-plinth` | empty concrete kerb plinth, **transparent cut-out** | 3:2 | `raw/kerb-plinth.png` | CSS concrete block with grain |
 
-Code-only (no asset): khaki shapes and quarter-cut disc, ghost titles, chrome title, clouds and peaks (SVG + parallax), pale-blue mesh lines, printed graphic and squeegee for the signature, clock, queue ticket, SOLD OUT stamps, woven label loader.
-Total: 19 stills + 2 films (V02 optional). Make batches in numeric order; each batch only needs the previous batch's masters.
+Code-only (no asset; V02 hoodie lift is now a code lift from A01 + A19): khaki shapes and quarter-cut disc, ghost titles, chrome title, clouds and peaks (SVG + parallax), pale-blue mesh lines, printed graphic and squeegee for the signature, clock, queue ticket, SOLD OUT stamps, woven label loader.
+**Batch 1** (nothing attached, run together): A01, A07, A08, A09, A10, A11, A19. **Batch 2** (after A01 and the fronts are approved; attach A01 or the matching front): A02, A13, A14, A15, A12, A03–A06, A18, V01. **Dropped:** A16, A17 (cap and socks backs) and V02. Total 17 stills + 1 film.
 
 ## 7. Prompts (as run)
 *(empty. When the user pastes back the prompts that were run: asset ID · date · prompt · attachments, word for word.)*
