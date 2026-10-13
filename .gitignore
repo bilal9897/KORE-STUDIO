@@ -59,3 +59,7 @@ public/frames/*
 *.mp4
 *.webm
 .cache/
+
+# cloud sessions: the kit clone and the private references clone (CLOUD.md)
+/kit/
+refs-private/

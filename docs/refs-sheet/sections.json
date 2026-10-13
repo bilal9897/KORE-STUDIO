@@ -1,0 +1,108 @@
+{
+  "day": 20,
+  "category": "streetwear",
+  "approved": true,
+  "sections": [
+    {
+      "id": "loader",
+      "name": "Loader",
+      "want": "a woven neck label stitches itself in, or a hang-tag barcode scans in with the real 0–100 counter, then opens onto the hero",
+      "kind": "text",
+      "words": "loader|preloader|intro",
+      "search": "website loader animation counter"
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "want": "shrinks to a slim bar on scroll, Drop 07 tag ticks along, marker underline on links, Bag pill pops",
+      "kind": "text",
+      "words": "nav|navigation|menu|header",
+      "search": "navigation bar menu"
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "want": "Drop 07 hoodie on an invisible mannequin turning on its own (Veo film, code flip fallback); the scroll drives the layout move (zine: halftone dots resolve into the photo)",
+      "kind": "top",
+      "words": "hero",
+      "search": "hero section"
+    },
+    {
+      "id": "dropclock",
+      "name": "Drop clock",
+      "want": "time left and pieces left (sample) count down with the scroll, stock bar drains; hover flips a time cell",
+      "kind": "text",
+      "words": "drop|countdown|launch|releases|coming soon|limited",
+      "search": "drop countdown launch"
+    },
+    {
+      "id": "lineup",
+      "name": "The line-up",
+      "want": "6 pieces in one studio setup (hoodie, tee, cargos, cap, socks, puffer) land like tags on a rail; hover swaps in the back view",
+      "kind": "grid",
+      "words": "shop|collection|new arrivals|line-up|products",
+      "search": "product grid"
+    },
+    {
+      "id": "product",
+      "name": "Product detail",
+      "want": "hoodie page: fabric loupe, size chips with a sliding highlight, colourway swatches swap the photo, sticky buy box beside a pinned gallery, Add to bag flies into the Bag",
+      "kind": "pdp",
+      "search": "product page"
+    },
+    {
+      "id": "print",
+      "name": "Pull the print (signature)",
+      "want": "the scroll pulls a squeegee across the hoodie back and prints the graphic one ink colour at a time",
+      "kind": "text",
+      "words": "print|screen print|graphic|artwork|process",
+      "search": "screen printing process"
+    },
+    {
+      "id": "fabric",
+      "name": "Built heavy",
+      "want": "close-up of fleece, rib and puff print; callout lines draw out, hotspots open small labels on hover",
+      "kind": "text",
+      "words": "fabric|gsm|fleece|cotton|details|construction|made",
+      "search": "fabric details callouts"
+    },
+    {
+      "id": "looks",
+      "name": "Flat-lay looks",
+      "want": "outfits laid flat on concrete (no people): items slide in and lock into the outfit; hover lights each item with its price",
+      "kind": "text",
+      "words": "lookbook|looks|outfit|style it|shop the look",
+      "search": "lookbook shop the look"
+    },
+    {
+      "id": "fit",
+      "name": "Fit guide",
+      "want": "Regular / Boxy / Oversized chips; the hoodie outline grows between fits and measurements roll",
+      "kind": "text",
+      "words": "size|fit|measurements|size guide|oversized",
+      "search": "size guide fit"
+    },
+    {
+      "id": "archive",
+      "name": "Past drops",
+      "want": "horizontal strip of past drops slides sideways with the scroll; hover thumps a SOLD OUT stamp",
+      "kind": "text",
+      "words": "archive|past drops|sold out|previous|seasons",
+      "search": "archive past collections"
+    },
+    {
+      "id": "newsletter",
+      "name": "Join the drop list",
+      "want": "email-only sign-up, magnetic button, queue count (labelled sample) counts up",
+      "kind": "email",
+      "search": "newsletter signup"
+    },
+    {
+      "id": "footer",
+      "name": "Footer",
+      "want": "huge KERBCODE wordmark stretches wide at the end, links slide, Concept website by Triozen Tech",
+      "kind": "footer",
+      "search": "footer"
+    }
+  ]
+}
