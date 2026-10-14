@@ -137,7 +137,7 @@ Run 2026-10-14 in Flow, **Nano Banana Pro, 4 takes each, downloaded at 2K**. Pas
 
 ### Batch 2 (Edit, one image attached each, same ratio chip as batch 1, JPG)
 
-**A02 · `hoodie-back.jpg`** (attached A01) · **A13 · `puffer-back.jpg`** (attached A07) · **A14 · `tee-back.jpg`** (attached A08) · **A15 · `cargo-back.jpg`** (attached A09), same prompt each time:
+**A02 · `hoodie-back.jpg`** (attached A01) · **A13 · `puffer-back.jpg`** (attached A07) · **A14 · `tee-back.jpg`** (attached A08) · **A15 · `cargo-back.jpg`** (attached A09), the same back-view prompt each time (A13, A14, A15 run 2026-10-14, same as A02 with A07, A08, A09 attached):
 > Show this exact same garment from the back, ghost mannequin style. Same colour, same fabric, same studio background, same size, same position in the frame, and the same lighting and shadow. The back is completely plain with no print, no logo, no text and no labels. No person, no hands, no face.
 
 **A12 · `tee-chalk.jpg`** (attached A08)
@@ -158,7 +158,7 @@ Run 2026-10-14 in Flow, **Nano Banana Pro, 4 takes each, downloaded at 2K**. Pas
 **V01 · `hero-turn.mp4`** (Veo, Frames to video, A01 as the start frame)
 > The black hoodie floats in place and slowly rotates on its vertical axis, a smooth steady turn from the front to the side to the back and around toward the front again, like a product turntable. The fabric keeps its shape and does not warp, and the drawcords swing very slightly. Plain pale grey studio background, soft even light, locked-off camera with no zoom and no camera movement. No people, no hands, no text.
 
-Note for V01 (user): the ratio chip was not on 16:9, so the file is 1920×1080 but the real picture is only 808×1080 in the middle with black bars on both sides. The turn itself is clean (8 s, 24 fps, no warping, no freezes). Plan: crop `crop=808:1080:556:0`, strip the silent audio, play ping-pong (forward then reverse) as a centred portrait film in the hero.
+Note for V01 (user, 2026-10-14): first came out at 808×1080 inside a 1920×1080 file and was cropped. The ratio chip was not on 16:9, so the file is 1920×1080 but the real picture is only 808×1080 in the middle with black bars on both sides. The turn itself is clean (8 s, 24 fps, no warping, no freezes). Plan: crop `crop=808:1080:556:0`, strip the silent audio, play ping-pong (forward then reverse) as a centred portrait film in the hero.
 
 ## 8. Different from the last sites
 Layout codes: none shared with Days 16–18 (checked). The look, palette and type-pair comparison goes in `docs/SITES-LOG.md` ("Uniqueness checks") at the end of the day; Day 19's row is not in this copy of the kit, so sync the kit first. Motion codes to confirm against every earlier hero and signature in Round 2: hero M30 (dial) and the print signature (new code, to be added to MOTION-MENU after the build).
