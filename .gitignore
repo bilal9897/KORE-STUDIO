@@ -8,7 +8,8 @@ docs/SITES-LOG.md
 # recordings and final reel videos (never pushed)
 recordings/
 *.mov
-/*.mp4
+//*.mp4
+!raw/*.mp4
 /reels/
 
 # Python venvs (`npm run cutout` uses .venv-cutout/; recreate with the command in scripts/cutout.mjs)
@@ -50,9 +51,8 @@ renders/
 refs/
 .triozen-ref-browser/
 
-# template repo: skip raw media, frame folders and big videos (keep the .gitkeep placeholders)
-raw/*
-!raw/.gitkeep
+# day repo: raw/ (Flow stills, Veo films) IS tracked; only the pre-clean-mark backups stay local
+raw/_orig/
 raw-orig/
 public/frames/*
 !public/frames/.gitkeep

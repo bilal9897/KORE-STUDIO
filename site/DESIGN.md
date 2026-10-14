@@ -110,7 +110,55 @@ Code-only (no asset; V02 hoodie lift is now a code lift from A01 + A19): khaki s
 4. Replies stay 2–3 lines.
 
 ## 7. Prompts (as run)
-*(grouped by batch; empty. When the user pastes back the prompts that were run: asset ID · date · prompt · attachments, word for word.)*
+Run 2026-10-14 in Flow, **Nano Banana Pro, 4 takes each, downloaded at 2K**. Pasted by the user, word for word.
+
+### Batch 1 (nothing attached, 4:5 ratio chip, JPG)
+
+**A01 · `hoodie-front.jpg` (master)**
+> Product photo of a heavyweight oversized boxy hoodie in deep ink black, front view, ghost mannequin (invisible mannequin) style, floating with natural shape as if worn, hood relaxed behind the neck, flat drawcords hanging, kangaroo pocket, ribbed cuffs and hem. Thick brushed cotton fleece with visible soft texture. Plain chest with no print, no logo, no text, no labels. Centred, full garment in frame with space around it, on a clean soft studio background in pale cool grey (#E7EBF0), soft even light from the front with a gentle shadow under the garment, sharp focus, high detail, realistic. No person, no hands, no face, no mannequin visible.
+
+**A07 · `puffer-front.jpg`**
+> Product photo of a boxy cropped puffer jacket in deep ink black with matte nylon shell and wide horizontal quilted baffles, front view, ghost mannequin (invisible mannequin) style, floating with natural shape as if worn, high collar, zip closed, two plain flap pockets. No logo, no text, no labels. Centred, full garment in frame with space around it, on a clean soft studio background in pale cool grey (#E7EBF0), soft even light from the front with a gentle shadow under the garment, sharp focus, realistic. No person, no hands, no face.
+
+**A08 · `tee-front.jpg`**
+> Product photo of a heavyweight oversized boxy t-shirt in deep ink black, front view, ghost mannequin (invisible mannequin) style, floating with natural shape as if worn, thick ribbed crew neck, dropped shoulders. Plain chest, no logo, no print, no text, no labels. Centred, full garment in frame with space around it, on a clean soft studio background in pale cool grey (#E7EBF0), soft even light from the front with a gentle shadow under the garment, sharp focus, realistic. No person, no hands, no face.
+
+**A09 · `cargo-front.jpg`**
+> Product photo of wide-leg cargo pants in charcoal grey (#3A3C40) cotton twill, front view, ghost mannequin (invisible mannequin) style, floating with natural shape as if worn, large flap cargo pockets on both thighs, drawcord waistband. No logo, no text, no labels. Centred, full garment in frame with space around it, on a clean soft studio background in pale cool grey (#E7EBF0), soft even light from the front with a gentle shadow under the garment, sharp focus, realistic. No person, no hands, no face.
+
+**A10 · `cap-front.jpg`**
+> Product photo of a six-panel baseball cap in solid red (#E3262D), front view, floating with natural shape as if worn, curved brim, plain crown with no logo, no embroidery, no text, no labels. Centred, in the middle of the frame with plenty of space around it, on a clean soft studio background in pale cool grey (#E7EBF0), soft even light from the front with a gentle shadow under it, sharp focus, realistic. No person, no hands, no face.
+
+**A11 · `socks-front.jpg`**
+> Product photo of a pair of tall ribbed crew socks in off-white chalk (#E9EDEF), floating side by side as if worn on invisible legs, front view, plain with no logo, no stripes, no text. Centred, in the middle of the frame with plenty of space around them, on a clean soft studio background in pale cool grey (#E7EBF0), soft even light from the front with a gentle shadow under them, sharp focus, realistic. No person, no hands, no feet.
+
+**A19 · `kerb-plinth.png`** (4:3; the user removed the background and saved it as a transparent PNG themselves; no cutout run)
+> Product photo of an empty rough concrete kerb block used as a display plinth, wide low rectangular block with chamfered top edge, light grey concrete with fine grain and small pores, slightly worn. Front three-quarter view, centred, full block in frame with space around it, on a clean plain soft studio background in pale cool grey (#E7EBF0), soft even light with a gentle shadow under it, sharp focus, realistic. Nothing on top of it. No text, no people.
+
+### Batch 2 (Edit, one image attached each, same ratio chip as batch 1, JPG)
+
+**A02 · `hoodie-back.jpg`** (attached A01) · **A13 · `puffer-back.jpg`** (attached A07) · **A14 · `tee-back.jpg`** (attached A08) · **A15 · `cargo-back.jpg`** (attached A09), same prompt each time:
+> Show this exact same garment from the back, ghost mannequin style. Same colour, same fabric, same studio background, same size, same position in the frame, and the same lighting and shadow. The back is completely plain with no print, no logo, no text and no labels. No person, no hands, no face.
+
+**A12 · `tee-chalk.jpg`** (attached A08)
+> Change only the colour of this t-shirt to a soft off-white chalk grey (#E9EDEF). Keep the exact same shape, folds, fabric texture, position, size, studio background, lighting and shadow. Nothing else changes. No logo, no print, no text.
+
+**Hoodie colourways** (attached A01 each time, only the colour changes)
+
+**A03 · `hoodie-ember.jpg`**
+> Change only the colour of this hoodie to a warm burnt orange (#EC6A2C). Keep the exact same shape, folds, fabric texture, drawcords, pocket, position, size, studio background, lighting and shadow. Nothing else changes. No logo, no print, no text.
+
+**A04 · `hoodie-chalk.jpg`**: same prompt with "a soft off-white chalk (#F6F6F4)".
+**A05 · `hoodie-navy.jpg`**: same prompt with "a deep navy blue (#1B2537)".
+**A06 · `hoodie-teal.jpg`**: same prompt with "a muted deep teal green (#2F5A5E)". It reads closer to forest green than teal, so keep the code name "teal" but use what the picture shows.
+
+**A18 · `fabric-macro.jpg`** (4:3, attached A01)
+> Extreme close-up macro shot of this hoodie's fabric, filling the whole frame: thick brushed cotton fleece showing the knit loops and the soft surface, with the edge of a ribbed cuff running across one side. Same black colour and the same soft studio lighting. Sharp focus with shallow depth of field, high detail, realistic. No logo, no print, no text, no people.
+
+**V01 · `hero-turn.mp4`** (Veo, Frames to video, A01 as the start frame)
+> The black hoodie floats in place and slowly rotates on its vertical axis, a smooth steady turn from the front to the side to the back and around toward the front again, like a product turntable. The fabric keeps its shape and does not warp, and the drawcords swing very slightly. Plain pale grey studio background, soft even light, locked-off camera with no zoom and no camera movement. No people, no hands, no text.
+
+Note for V01 (user): the ratio chip was not on 16:9, so the file is 1920×1080 but the real picture is only 808×1080 in the middle with black bars on both sides. The turn itself is clean (8 s, 24 fps, no warping, no freezes). Plan: crop `crop=808:1080:556:0`, strip the silent audio, play ping-pong (forward then reverse) as a centred portrait film in the hero.
 
 ## 8. Different from the last sites
 Layout codes: none shared with Days 16–18 (checked). The look, palette and type-pair comparison goes in `docs/SITES-LOG.md` ("Uniqueness checks") at the end of the day; Day 19's row is not in this copy of the kit, so sync the kit first. Motion codes to confirm against every earlier hero and signature in Round 2: hero M30 (dial) and the print signature (new code, to be added to MOTION-MENU after the build).
