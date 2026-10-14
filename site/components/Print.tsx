@@ -12,7 +12,7 @@ const STEPS = [
 ];
 const VB = { w: 400, h: 230 };
 // chest region of the still (fractions of the image box)
-const CHEST = { x: 0.31, y: 0.3, w: 0.38, h: 0.22 };
+const CHEST = { x: 0.27, y: 0.29, w: 0.46, h: 0.21 };
 
 /** SIGNATURE — "the print is pulled": 4 squeegee passes across the chest, each reveals one ink layer of the graphic.
  *  Direction alternates so the blade never jumps back; scrolling back un-pulls it. Idle: a faint ink shimmer. */
@@ -84,7 +84,7 @@ export default function Print() {
                   {[0, 1, 2, 3].map((i) => <clipPath key={i} id={`kp-clip${i}`}><rect x="0" y="0" width="0" height={VB.h} /></clipPath>)}
                 </defs>
                 <g clipPath="url(#kp-clip0)"><text x="22" y="118" className="pr-t1">KERB</text></g>
-                <g clipPath="url(#kp-clip1)"><path d="M30 190 L30 150 A60 60 0 1 1 90 190 Z" fill="#EC6A2C" transform="translate(322 -64) scale(.8)" /><circle cx="364" cy="168" r="12" fill="#EC6A2C" /></g>
+                <g clipPath="url(#kp-clip1)"><path d="M336 78 V42 A20 20 0 0 1 376 42 V78 Z" fill="#EC6A2C" /><circle cx="364" cy="168" r="12" fill="#EC6A2C" /></g>
                 <g clipPath="url(#kp-clip2)"><text x="200" y="176" textAnchor="middle" className="pr-t2">CODE · 07</text></g>
                 <g clipPath="url(#kp-clip3)"><path d="M24 196H376" stroke="#F6F6F4" strokeWidth="2" strokeDasharray="6 6" /><text x="200" y="216" textAnchor="middle" className="pr-t3">STUDIO · STREET · DROP 07</text></g>
               </svg>

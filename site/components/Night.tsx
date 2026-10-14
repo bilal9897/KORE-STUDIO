@@ -1,68 +1,75 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
-import { IMG, PLINTH, NIGHT_SLOTS } from "../content";
-import { usePinProgress, tick, isStatic, seg, lenisVelocity, watchVisible } from "../lib/motion";
+import { PLINTH, NIGHT_SLOTS } from "../content";
+import Cut, { CUT } from "./Cut";
+import { usePinProgress, tick, isStatic, seg, clamp, lenisVelocity, watchVisible } from "../lib/motion";
 
-const N = NIGHT_SLOTS.length, STEP = 360 / N, R = 640;
+const PIECES = NIGHT_SLOTS.slice(0, 6);
+const N = PIECES.length;
+const GAP = 30;        // degrees between neighbours on the arc
+const WIN = 54;        // pieces fade out beyond this angle
+const RX = 880;        // arc half-width factor
 
-/** GL17 curved carousel, M33 ring: seven two-sided cards on a cylinder. Scroll rotates it (both ways), an idle drift
- *  keeps it turning when you stop; a card that turns away shows its real back still (cap / socks: inside colour).
+/** GL17 curved row: six cut-out pieces float on a gentle arc. The row slides along the arc with scroll (both ways),
+ *  centre pieces sit small and far back, side pieces larger and turned inward; a piece that reaches the far side turns
+ *  to show its back (cap / socks: inside-colour silhouette). Idle: every piece bobs, the row sways.
  *  At the end the hoodie lifts off the kerb plinth. */
 export default function Night() {
   const outer = useRef<HTMLElement>(null);
-  const ring = useRef<HTMLDivElement>(null);
   const title = useRef<HTMLDivElement>(null);
   const clouds = useRef<HTMLDivElement>(null);
   const peaks = useRef<HTMLDivElement>(null);
   const red = useRef<HTMLDivElement>(null);
+  const row = useRef<HTMLDivElement>(null);
   const finale = useRef<HTMLDivElement>(null);
   const hood = useRef<HTMLDivElement>(null);
-  const st = useRef({ p: 0, idle: 0, vis: false, vel: 0 });
-  const slots = useRef<(HTMLElement | null)[]>([]);
+  const st = useRef({ p: 0, c: -0.6, t: 0, vis: false, tilt: 0 });
+  const pcs = useRef<(HTMLElement | null)[]>([]);
 
-  const layout = () => {
+  const layout = (dt = 0.016) => {
     const s = st.current, p = s.p;
-    const rot = p * 360 * 0.92 + s.idle;
-    if (ring.current) {
-      ring.current.style.transform = `translateZ(${-R}px) rotateY(${-rot}deg)`;
-      ring.current.style.opacity = String(1 - seg(p, 0.8, 0.92));
-    }
-    slots.current.forEach((el, i) => {
+    // centre index travels from just before piece 0 to just past the last one, ending at p = .74
+    const target = -0.7 + seg(p, 0, 0.74) * (N - 1 + 1.4);
+    s.c += (target - s.c) * Math.min(1, dt * 7);
+    s.tilt += (clamp(lenisVelocity() * 0.012, -14, 14) - s.tilt) * Math.min(1, dt * 6);
+    const sway = Math.sin(s.t * 0.5) * 0.06;
+    pcs.current.forEach((el, i) => {
       if (!el) return;
-      const a = Math.abs((((i * STEP - rot) % 360) + 540) % 360 - 180);
-      el.style.opacity = String(Math.max(0, Math.min(1, 1 - (a - 118) / 45)));
+      const th = (i - s.c - sway) * GAP;               // angle on the arc (deg); + = right side
+      const a = Math.abs(th), k = clamp(a / WIN);
+      const x = Math.sin((th * Math.PI) / 180) * RX;
+      const y = (1 - Math.cos((th * Math.PI) / 180)) * 330 + Math.sin(s.t * 1.3 + i * 1.7) * 7 - 20;
+      const sc = 0.78 + 0.5 * Math.pow(k, 1.15);
+      const flip = seg(-th, 14, 46);                    // 0 front .. 1 back, only on the far (left) side
+      const ry = th * 0.45 - 180 * flip;
+      const op = 1 - seg(a, WIN - 12, WIN + 8);
+      el.style.opacity = String(op);
+      el.style.visibility = op < 0.01 ? "hidden" : "visible";
+      el.style.zIndex = String(Math.round(a));
+      el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${sc.toFixed(3)}) rotateY(${ry.toFixed(1)}deg) rotateZ(${(s.tilt * (th > 0 ? 1 : -1) * 0.3).toFixed(2)}deg)`;
     });
     const lift = seg(p, 0.8, 1);
     if (title.current) { title.current.style.transform = `translateX(${(-p * 40).toFixed(1)}px)`; title.current.style.opacity = String(1 - seg(p, 0.74, 0.84)); }
-    if (clouds.current) clouds.current.style.transform = `translateX(${(-p * 260 + s.idle * 2).toFixed(1)}px)`;
+    if (clouds.current) clouds.current.style.transform = `translateX(${(-p * 260 - s.t * 6).toFixed(1)}px)`;
     if (peaks.current) peaks.current.style.transform = `translateX(${(-p * 90).toFixed(1)}px)`;
     if (red.current) red.current.style.transform = `translateX(${(p * 200).toFixed(1)}px)`;
+    if (row.current) row.current.style.opacity = String(1 - seg(p, 0.76, 0.86));
     if (finale.current) { finale.current.style.opacity = String(seg(p, 0.76, 0.86)); finale.current.style.transform = `translateY(${(1 - seg(p, 0.76, 0.9)) * 220}px)`; }
     if (hood.current) hood.current.style.transform = `translateY(${(-lift * 70).toFixed(1)}px) rotate(${(Math.sin(lift * 5) * 1.2).toFixed(2)}deg)`;
   };
 
-  usePinProgress(outer, (p) => { st.current.p = p; layout(); }, 0);
+  usePinProgress(outer, (p) => { st.current.p = p; if (!st.current.vis || isStatic()) { st.current.c = -0.7 + seg(p, 0, 0.74) * (N - 1 + 1.4); layout(0); } }, 0);
 
   useEffect(() => {
     if (isStatic()) return;
     const off = watchVisible(outer.current!, (v) => (st.current.vis = v));
     const t = tick((dt) => {
       if (!st.current.vis) return;
-      st.current.idle += dt * 4 + Math.abs(lenisVelocity()) * 0.01 * dt * 30;
-      layout();
+      st.current.t += dt;
+      layout(dt);
     });
     return () => { off(); t(); };
   }, []);
-
-  // tilt toward the pointer
-  const tilt = (e: React.PointerEvent<HTMLElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-    e.currentTarget.style.setProperty("--tx", `${(-y * 14).toFixed(1)}deg`);
-    e.currentTarget.style.setProperty("--ty", `${(x * 18).toFixed(1)}deg`);
-  };
-  const untilt = (e: React.PointerEvent<HTMLElement>) => { e.currentTarget.style.setProperty("--tx", "0deg"); e.currentTarget.style.setProperty("--ty", "0deg"); };
 
   return (
     <section ref={outer} id="night" data-nav="dark" className="pin night" style={{ ["--pin" as string]: "460vh" }}>
@@ -76,27 +83,28 @@ export default function Night() {
           </svg>
         </div>
         <div ref={peaks} className="nt-peaks" aria-hidden>
-          <svg viewBox="0 0 1800 320" preserveAspectRatio="none"><path d="M0 320V210L170 90 300 180 470 40 680 200 860 110 1040 220 1220 70 1420 190 1600 100 1800 200V320Z" fill="#0A2733" /><path d="M0 320V260L220 170 420 250 640 150 900 260 1130 160 1360 250 1580 180 1800 250V320Z" fill="#06151C" /></svg>
+          <svg viewBox="0 0 1800 330" preserveAspectRatio="none"><path d="M0 330 L0 190 L200 90 L380 200 L560 70 L760 210 L960 100 L1160 220 L1360 80 L1560 200 L1800 110 L1800 330Z" fill="#0F3647" opacity=".85" /><path d="M0 330 L0 250 L260 170 L460 260 L700 160 L940 270 L1180 180 L1440 270 L1800 190 L1800 330Z" fill="#0A222D" /></svg>
         </div>
         <div ref={red} className="nt-red" aria-hidden>ORIGINALS</div>
         <div ref={title} className="nt-title">
           <h2 className="k-h2">NIGHT DROP</h2>
           <span className="nt-pill" data-cursor="New">New Arrival</span>
         </div>
-        <div className="nt-stage">
-          <div ref={ring} className="nt-ring">
-            {NIGHT_SLOTS.map((s, i) => (
-              <article key={i} ref={(n) => { slots.current[i] = n; }} className="nt-slot" style={{ transform: `rotateY(${i * STEP}deg) translateZ(${R}px)` }}>
-                <div className="nt-card" onPointerMove={tilt} onPointerLeave={untilt} {...(i === 0 ? { "data-hover-demo": true } : {})}>
-                  <div className="nt-face nt-front"><img src={IMG(s.front)} alt={s.name} /><span className="nt-tag">{s.name}</span></div>
-                  <div className="nt-face nt-back" style={!s.back ? { background: s.flat } : undefined}>{s.back && <img src={IMG(s.back)} alt={`${s.name}, back`} />}</div>
+        <div ref={row} className="nt-row">
+          {PIECES.map((s, i) => (
+            <figure key={s.name} ref={(n) => { pcs.current[i] = n; }} className="nt-piece" {...(i === 2 ? { "data-hover-demo": true } : {})}>
+              <div className="nt-flip">
+                <div className="nt-face nt-front"><Cut n={s.front} alt={s.name} /></div>
+                <div className="nt-face nt-back">
+                  {s.back ? <Cut n={s.back} alt={`${s.name}, back`} /> : <span className="nt-flat" style={{ background: s.flat, WebkitMaskImage: `url(${CUT(s.front)})`, maskImage: `url(${CUT(s.front)})` }} aria-label={`${s.name}, inside`} />}
                 </div>
-              </article>
-            ))}
-          </div>
+              </div>
+              <figcaption className="nt-tag">{s.name}</figcaption>
+            </figure>
+          ))}
         </div>
         <div ref={finale} className="nt-finale">
-          <div ref={hood} className="nt-hood"><img src={IMG("hoodie-front")} alt="Drop 07 hoodie lifting off a kerb" /></div>
+          <div ref={hood} className="nt-hood"><Cut n="hoodie-front" alt="Drop 07 hoodie lifting off a kerb" /></div>
           <img className="nt-plinth" src={PLINTH} alt="" aria-hidden />
         </div>
       </div>

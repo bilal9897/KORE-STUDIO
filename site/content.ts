@@ -1,5 +1,5 @@
 // All text + data for Kerbcode Studio (fictional, concept website). Prices are SAMPLE prices.
-export const IMG = (n: string) => `/images/kerbcode/${n}.webp`;
+export const IMG = (n: string) => `/images/kerbcode/${n}${n === "fabric-macro" ? "" : "-cut"}.webp`;
 export const PLINTH = "/images/kerbcode/kerb-plinth.png";
 
 export const NAV = [
