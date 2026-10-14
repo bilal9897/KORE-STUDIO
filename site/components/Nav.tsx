@@ -50,20 +50,40 @@ export default function Nav() {
   };
   return (
     <nav ref={root} className={`k-nav ${tone === "white" ? "is-white" : ""} ${open ? "is-open" : ""}`} aria-label="Main">
-      <a href="#hero" className="k-logo" onClick={(e) => go(e, "#hero")}><b>KERBCODE</b><i>STUDIO</i></a>
-      <div className="k-tab" onMouseEnter={() => setOpen(true)} onMouseLeave={() => { setOpen(false); setHl((h) => ({ ...h, on: false })); }}>
-        <Magnetic strength={0.2}>
-          <button type="button" className="k-tab-btn" aria-expanded={open} onClick={() => setOpen((o) => !o)} onFocus={() => setOpen(true)}>
-            <span className="k-tab-dots" aria-hidden><i /><i /><i /></span>Menu
-            <span ref={bagEl} data-bag className="k-bag">Bag {bag}</span>
-          </button>
-        </Magnetic>
-        <div className="k-panel" role="menu">
-          <span className="k-hl" style={{ transform: `translateY(${hl.y}px)`, height: hl.h, opacity: hl.on ? 1 : 0 }} />
+      <div className="k-nav-glass">
+        <a href="#hero" className="k-logo" onClick={(e) => go(e, "#hero")}>
+          <span className="k-logo-badge" aria-hidden>
+            <img src="/images/kerbcode/hoodie-front-cut.webp" alt="KORE Logo" className="k-logo-img" />
+          </span>
+          <span className="k-logo-text">
+            <b>KORE</b>
+            <i>STUDIO</i>
+          </span>
+        </a>
+
+        <div className="k-nav-links" role="menubar">
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} role="menuitem" onClick={(e) => go(e, n.href)}
-              onMouseEnter={(e) => setHl({ y: e.currentTarget.offsetTop, h: e.currentTarget.offsetHeight, on: true })}>{n.label}<em>→</em></a>
+            <a key={n.href} href={n.href} className="k-nav-link" onClick={(e) => go(e, n.href)}>
+              {n.label}
+            </a>
           ))}
+        </div>
+
+        <div className="k-tab" onMouseEnter={() => setOpen(true)} onMouseLeave={() => { setOpen(false); setHl((h) => ({ ...h, on: false })); }}>
+          <Magnetic strength={0.2}>
+            <button type="button" className="k-tab-btn" aria-expanded={open} onClick={() => setOpen((o) => !o)} onFocus={() => setOpen(true)}>
+              <span className="k-tab-dots" aria-hidden><i /><i /><i /></span>
+              <span className="k-tab-text">Menu</span>
+              <span ref={bagEl} data-bag className="k-bag">Bag {bag}</span>
+            </button>
+          </Magnetic>
+          <div className="k-panel" role="menu">
+            <span className="k-hl" style={{ transform: `translateY(${hl.y}px)`, height: hl.h, opacity: hl.on ? 1 : 0 }} />
+            {NAV.map((n) => (
+              <a key={n.href} href={n.href} role="menuitem" onClick={(e) => go(e, n.href)}
+                onMouseEnter={(e) => setHl({ y: e.currentTarget.offsetTop, h: e.currentTarget.offsetHeight, on: true })}>{n.label}<em>→</em></a>
+            ))}
+          </div>
         </div>
       </div>
     </nav>

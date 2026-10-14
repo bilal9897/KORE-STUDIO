@@ -28,8 +28,8 @@ export default function Footer() {
         <div className="kf-col"><h4>Go to</h4>{NAV.map((n) => <a key={n.href} href={n.href} className="kf-link">{n.label}</a>)}</div>
         <div className="kf-col"><h4>Follow</h4><a className="kf-link" href="#footer">Instagram</a><a className="kf-link" href="#footer">YouTube</a><a className="kf-link" href="#footer">Newsletter</a></div>
       </div>
-      <div ref={word} className="kf-word" aria-hidden>{"KERBCODE".split("").map((c, i) => <span key={i}>{c}</span>)}</div>
-      <p className="kf-note container-x">Concept website by Triozen Tech · Kerbcode Studio is a fictional brand · all prices are sample prices</p>
+      <div ref={word} className="kf-word" aria-hidden>{"KORE".split("").map((c, i) => <span key={i}>{c}</span>)}</div>
+      <p className="kf-note container-x">Concept website by bilalsalmani.in · KORE Studio is a concept streetwear brand · All pieces and prices are limited edition samples</p>
     </footer>
   );
 }

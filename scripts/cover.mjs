@@ -144,7 +144,7 @@ body { position: relative; -webkit-font-smoothing: antialiased; }
 ${obj ? `<div class="contact" style="left:${OBJ.cx - obj.w * 0.35}px;top:${obj.top + obj.h - 16}px;width:${obj.w * 0.7}px;height:30px"></div>
 <div class="obj" style="left:${obj.left}px;top:${obj.top}px;width:${obj.w}px;height:${obj.h}px"><img src="${pathToFileURL(obj.file).href}"></div>` : ""}
 <div class="text"><div class="l1">${niche.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</div><div class="l2">SCROLL WEBSITE</div></div>
-<div class="badge"></div><div class="studio">TRIOZEN TECH</div>
+<div class="badge"></div><div class="studio">BILALSALMANI.IN</div>
 <div class="grain"></div>
 </body></html>`;
 const page$ = join(tmp, "cover.html");

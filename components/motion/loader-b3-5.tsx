@@ -451,7 +451,7 @@ function I23() {
   return (
     <Stage r={root} g1="rgba(224,145,63,.36)" g2="rgba(79,141,255,.2)">
       <div className="absolute inset-0 px-[4%] py-[3.5%]">
-        <MiniNav brand="Triozen Tech" links={["Work", "Studio", "Say hi"]} />
+        <MiniNav brand="bilalsalmani.in" links={["Work", "Studio", "Say hi"]} />
         <div className="i23-meta absolute bottom-[6%] left-[4%] text-[14px] text-white/65">Ceramics & lighting, made slowly</div>
         <div className="i23-meta absolute bottom-[6%] right-[4%] text-[14px] text-white/65">Pendant N°4 · ₹ 18,900</div>
       </div>
@@ -466,7 +466,7 @@ function I23() {
         <h3 className="relative inline-block text-[clamp(56px,7.4vw,112px)] font-[800] uppercase leading-none tracking-[-0.03em]" style={{ fontFamily: F.sy }}>
           {Array.from({ length: 4 }, (_, i) => (
             <span key={i} className={`i23-clone ${i === 0 ? "relative inline-block" : "b3g5-hide absolute left-0 top-0"}`} style={i ? { top: `${i * 0.16}em`, zIndex: -i } : undefined}>
-              Triozen
+              bilalsalmani.in
             </span>
           ))}
         </h3>

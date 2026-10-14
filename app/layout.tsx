@@ -8,6 +8,14 @@ import { meta, theme } from "@/site/site";
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
+  icons: {
+    icon: [
+      { url: "/images/kerbcode/hoodie-front-cut.webp" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/images/kerbcode/hoodie-front-cut.webp",
+    apple: "/images/kerbcode/hoodie-front-cut.webp",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

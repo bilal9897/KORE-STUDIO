@@ -14,9 +14,9 @@ import { prefersReducedMotion } from "@/lib/gsap";
  */
 
 const css = `
-.sp-btn { position: relative; transition: background-color .35s ease, color .35s ease, box-shadow .35s ease; box-shadow: inset 0 0 0 1px var(--line); }
-.sp-btn:hover:not(:disabled) { box-shadow: inset 0 0 0 1px var(--text); }
-.sp-btn.is-on { background: var(--accent); color: var(--accent-text); box-shadow: none; }
+.sp-btn { position: relative; border-radius: 999px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 4px 14px -2px rgba(0,0,0,0.06), inset 0 1px 1.5px rgba(255,255,255,0.7); transition: all .35s ease; cursor: pointer; }
+.sp-btn:hover:not(:disabled) { background: rgba(255, 255, 255, 0.7); border-color: rgba(255, 255, 255, 0.85); transform: translateY(-1px); box-shadow: 0 8px 20px -2px rgba(0,0,0,0.1), inset 0 1px 2px #fff; }
+.sp-btn.is-on { background: linear-gradient(135deg, rgba(236, 106, 44, 0.92), rgba(212, 78, 20, 0.96)); color: #fff; border-color: rgba(255, 255, 255, 0.5); box-shadow: 0 6px 18px rgba(236, 106, 44, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.6); }
 .sp-btn:disabled { color: color-mix(in srgb, var(--muted) 60%, transparent); background: linear-gradient(to top right, transparent calc(50% - .5px), var(--line) 50%, transparent calc(50% + .5px)); }
 .sp-tap { position: absolute; inset: -6px; border: 2px solid var(--accent); pointer-events: none; animation: sp-tap .7s ease-out forwards; }
 @keyframes sp-tap { from { opacity: 1; transform: scale(.7); } to { opacity: 0; transform: scale(1.25); } }

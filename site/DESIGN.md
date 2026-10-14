@@ -25,7 +25,7 @@ Layout D follows the three references section by section in their own colours; o
 
 - **Fonts:** display **Krona One** (wide geometric: the giant wordmark, ghost titles, price pill). Body **Inter Tight** (my pick: the digest names only Krona One). Check the pair against Day 19 when the log is synced; never the same pair two days running.
 - **Design system:** hard-edged shapes (quarter-cut disc, black slabs), round chips and dots, one orange accent, ghost (outlined, low-opacity) giant titles, small caps labels, thin 1px rules. Cards are flat tiles with name + MRP; no shadows except under products. All product stills share one studio grade (cool white `#E7EBF0` background, soft floor shadow).
-- **Copy rules:** 2–6 words per headline. Prices in ₹ and always labelled **"sample"** (e.g. "MRP ₹4,990 · sample"). The join-section queue number is labelled **"sample"**. Footer: **"Concept website by Triozen Tech"**. No fake phone numbers or real addresses.
+- **Copy rules:** 2–6 words per headline. Prices in ₹ and always labelled **"sample"** (e.g. "MRP ₹4,990 · sample"). The join-section queue number is labelled **"sample"**. Footer: **"Concept website by bilalsalmani.in"**. No fake phone numbers or real addresses.
 
 ## 3. Approved sections, in order
 Menu codes are SECTION-MENU layouts, none repeated on the site and none used by Days 16–18 (checked against `docs/SITES-SUMMARY.md` and the SITES-LOG Layouts column). Motion codes are unique across the page and none is "just fade in". Item numbers match the section ids in the build.

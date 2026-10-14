@@ -4,7 +4,7 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { isStatic } from "../lib/motion";
 
 const LINES = [
-  "KERBCODE STUDIO · DROP 07",
+  "KORE STUDIO · DROP 07",
   "---------------------------",
   "ENTRY .......... DROP LIST",
   "OPENS .......... 05 DEC 8PM",

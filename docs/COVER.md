@@ -30,7 +30,7 @@ npm run cover -- --day <N> --niche "<WORD>" --accent "#rrggbb" [--dir <day folde
 | **SCROLL WEBSITE** | Anton **96px**, #111, centred, **20px** below the niche word |
 | **Text block position** | the two lines are centred between the card bottom (≈1170) and y **1640**; all text ends above y **1613** (the script warns if not). No third line |
 | **Reels-tab view-count badge** | rounded rectangle #111, x **36–560** (wide enough for a count like "2,548"), y **1738–1852**, radius **18**, **nothing on it**: Instagram draws the Reels-tab view count there (bottom-left of the 9:16 tile). It's below the 3:4 crop, so the main grid (which shows no counts) never shows it |
-| **Studio name** | "TRIOZEN TECH", Urbanist Bold (700) **30px**, letter-spacing **0.12em**, #111 at **55%**, right-aligned with its last letter at x **1044**, vertically centred on the badge (y ≈ 1795) |
+| **Studio name** | "BILALSALMANI.IN", Urbanist Bold (700) **30px**, letter-spacing **0.12em**, #111 at **55%**, right-aligned with its last letter at x **1044**, vertically centred on the badge (y ≈ 1795) |
 
 ## Hero shot (`raw/cover-shot.jpg`)
 
