@@ -34,7 +34,7 @@ export default function Night() {
       el.style.opacity = String(Math.max(0, Math.min(1, 1 - (a - 118) / 45)));
     });
     const lift = seg(p, 0.8, 1);
-    if (title.current) { title.current.style.transform = `translateX(${(-p * 40).toFixed(1)}px)`; }
+    if (title.current) { title.current.style.transform = `translateX(${(-p * 40).toFixed(1)}px)`; title.current.style.opacity = String(1 - seg(p, 0.74, 0.84)); }
     if (clouds.current) clouds.current.style.transform = `translateX(${(-p * 260 + s.idle * 2).toFixed(1)}px)`;
     if (peaks.current) peaks.current.style.transform = `translateX(${(-p * 90).toFixed(1)}px)`;
     if (red.current) red.current.style.transform = `translateX(${(p * 200).toFixed(1)}px)`;
@@ -80,7 +80,7 @@ export default function Night() {
         </div>
         <div ref={red} className="nt-red" aria-hidden>ORIGINALS</div>
         <div ref={title} className="nt-title">
-          <h2 className="k-h2">NIGHT<br />DROP</h2>
+          <h2 className="k-h2">NIGHT DROP</h2>
           <span className="nt-pill" data-cursor="New">New Arrival</span>
         </div>
         <div className="nt-stage">

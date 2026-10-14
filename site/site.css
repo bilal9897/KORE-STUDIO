@@ -177,9 +177,7 @@ html.is-static .kl, html.is-static .seam { display: none; }
 .pr-garment > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pr-chest { position: absolute; }
 .pr-chest svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.pr-t1 { font-family: var(--font-display); font-size: 104px; fill: #F6F6F4; } .pr-t2 { font-family: var(--font-display); font-size: 40px; fill: none; stroke: #F6F6F4; stroke-width: 1.6; } .pr-t3 { font: 700 12px var(--font-body); letter-spacing: .24em; fill: #8C8260; }
-.pr-shimmer { position: absolute; inset: 0; mix-blend-mode: screen; opacity: .5; background: linear-gradient(100deg, transparent 38%, rgba(255,255,255,.28) 50%, transparent 62%); background-size: 260% 100%; animation: kShim 4.2s linear infinite; -webkit-mask-image: linear-gradient(#000, #000); pointer-events: none; }
-@keyframes kShim { from { background-position: 130% 0; } to { background-position: -130% 0; } }
+.pr-t1 { font-family: var(--font-display); font-size: 86px; fill: #F6F6F4; } .pr-t2 { font-family: var(--font-display); font-size: 40px; fill: none; stroke: #F6F6F4; stroke-width: 1.6; } .pr-t3 { font: 700 12px var(--font-body); letter-spacing: .24em; fill: #8C8260; }
 .pr-blade { position: absolute; top: -16%; bottom: -16%; width: 24px; margin-left: -12px; opacity: 0; --tilt: -8deg; --ink: #F6F6F4; pointer-events: none; transform-origin: 50% 50%; }
 .pr-blade i { position: absolute; inset: 0; display: block; background: linear-gradient(90deg, #1b1c1f 0 55%, #3a3d43 55% 100%); border-radius: 2px; transform: rotate(var(--tilt)); box-shadow: 8px 0 0 -2px var(--ink), 0 10px 22px rgba(0,0,0,.35); }
 
@@ -203,13 +201,13 @@ html.is-static .kl, html.is-static .seam { display: none; }
 .nt-clouds { position: absolute; left: -10%; top: 40px; width: 220%; height: 300px; will-change: transform; } .nt-clouds svg { width: 100%; height: 100%; }
 .nt-peaks { position: absolute; left: -5%; bottom: 0; width: 125%; height: 330px; will-change: transform; } .nt-peaks svg { width: 100%; height: 100%; display: block; }
 .nt-red { position: absolute; left: 4%; bottom: 80px; font-family: var(--font-display); font-size: 150px; line-height: 1; color: var(--red); opacity: .92; will-change: transform; z-index: 1; white-space: nowrap; }
-.nt-title { position: absolute; left: 64px; top: 90px; z-index: 2; will-change: transform; pointer-events: none; }
-.nt-title .k-h2 { font-size: 150px; line-height: .9; background: linear-gradient(180deg, #fff 0%, #aebdc5 44%, #eef3f5 52%, #5d7581 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.nt-pill { display: inline-block; margin-top: 22px; padding: 10px 20px; background: var(--orange); color: var(--ink); border-radius: 99px; font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; animation: kPillSlide 3.6s ease-in-out infinite; pointer-events: auto; }
+.nt-title { position: absolute; left: 64px; top: 76px; display: flex; align-items: center; gap: 28px; z-index: 2; will-change: transform; pointer-events: none; }
+.nt-title .k-h2 { font-size: 104px; line-height: 1; white-space: nowrap; background: linear-gradient(180deg, #fff 0%, #aebdc5 44%, #eef3f5 52%, #5d7581 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nt-pill { display: inline-block; margin-top: 0; padding: 10px 20px; background: var(--orange); color: var(--ink); border-radius: 99px; font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; animation: kPillSlide 3.6s ease-in-out infinite; pointer-events: auto; }
 @keyframes kPillSlide { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(14px); } }
-.nt-stage { position: absolute; left: 0; right: 0; top: 150px; height: 560px; perspective: 1500px; perspective-origin: 50% 40%; z-index: 3; }
+.nt-stage { position: absolute; left: 0; right: 0; top: 215px; height: 520px; perspective: 1500px; perspective-origin: 50% 40%; z-index: 3; }
 .nt-ring { position: absolute; left: 50%; top: 0; width: 0; height: 100%; transform-style: preserve-3d; }
-.nt-slot { position: absolute; left: -150px; top: 50px; width: 300px; height: 400px; transform-style: preserve-3d; }
+.nt-slot { position: absolute; left: -150px; top: 40px; width: 300px; height: 400px; transform-style: preserve-3d; }
 .nt-card { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; --tx: 0deg; --ty: 0deg; transform: rotateX(var(--tx)) rotateY(var(--ty)); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
 .nt-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: var(--studio); overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.45); }
 .nt-back { transform: rotateY(180deg); }
@@ -218,7 +216,7 @@ html.is-static .kl, html.is-static .seam { display: none; }
 .nt-card:hover .nt-tag { transform: translateY(0); }
 .nt-finale { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; opacity: 0; z-index: 4; pointer-events: none; will-change: transform; }
 .nt-plinth { width: 600px; margin-bottom: 40px; position: relative; z-index: 1; }
-.nt-hood { position: relative; z-index: 2; margin-bottom: -80px; will-change: transform; -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent 98%); mask-image: radial-gradient(closest-side, #000 40%, transparent 98%); }
+.nt-hood { position: relative; z-index: 2; margin-bottom: -170px; will-change: transform; -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent 98%); mask-image: radial-gradient(closest-side, #000 40%, transparent 98%); }
 .nt-hood img { width: 330px; }
 
 /* ---------- shop ---------- */
@@ -292,3 +290,6 @@ html.is-static .kl, html.is-static .seam { display: none; }
 .kf-word { margin-top: 90px; display: flex; justify-content: center; overflow: hidden; font-family: var(--font-display); font-size: 12.4vw; line-height: 1.05; white-space: nowrap; will-change: transform; }
 .kf-word span { display: inline-block; }
 .kf-note { margin-top: 30px; font-size: 13px; opacity: .6; letter-spacing: .06em; }
+
+.pr-chest svg { animation: kInk 3.6s ease-in-out infinite; }
+@keyframes kInk { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.18); } }

@@ -83,12 +83,11 @@ export default function Print() {
                 <defs>
                   {[0, 1, 2, 3].map((i) => <clipPath key={i} id={`kp-clip${i}`}><rect x="0" y="0" width="0" height={VB.h} /></clipPath>)}
                 </defs>
-                <g clipPath="url(#kp-clip0)"><text x="200" y="118" textAnchor="middle" className="pr-t1">KERB</text></g>
-                <g clipPath="url(#kp-clip1)"><path d="M30 190 L30 150 A60 60 0 1 1 90 190 Z" fill="#EC6A2C" transform="translate(268 -60) scale(.9)" /><circle cx="76" cy="62" r="14" fill="#EC6A2C" /></g>
+                <g clipPath="url(#kp-clip0)"><text x="22" y="118" className="pr-t1">KERB</text></g>
+                <g clipPath="url(#kp-clip1)"><path d="M30 190 L30 150 A60 60 0 1 1 90 190 Z" fill="#EC6A2C" transform="translate(322 -64) scale(.8)" /><circle cx="364" cy="168" r="12" fill="#EC6A2C" /></g>
                 <g clipPath="url(#kp-clip2)"><text x="200" y="176" textAnchor="middle" className="pr-t2">CODE · 07</text></g>
                 <g clipPath="url(#kp-clip3)"><path d="M24 196H376" stroke="#F6F6F4" strokeWidth="2" strokeDasharray="6 6" /><text x="200" y="216" textAnchor="middle" className="pr-t3">STUDIO · STREET · DROP 07</text></g>
               </svg>
-              <div className="pr-shimmer" aria-hidden />
               <div ref={blade} className="pr-blade" aria-hidden><i /></div>
             </div>
           </div>

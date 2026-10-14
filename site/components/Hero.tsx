@@ -76,6 +76,7 @@ export default function Hero() {
     sp.current = p;
     gsap.set(wl.current, { x: -p * 260 });
     gsap.set(wr.current, { x: p * 260 });
+    if (wl.current?.parentElement) wl.current.parentElement.style.opacity = String(1 - Math.min(1, Math.max(0, (p - 0.6) / 0.35)));
     gsap.set(panel.current, { y: -p * 40 });
     gsap.set(copy.current, { opacity: 1 - p * 1.6 });
   }, 0);
