@@ -11,10 +11,10 @@ const STEPS = [
   { t: "Flash and cure", s: "Heat sets the ink so it survives a hundred washes.", ink: "#0E0F11", name: "Cure black" },
 ];
 const VB = { w: 400, h: 230 };
-// chest region of the still (fractions of the image box)
-const CHEST = { x: 0.27, y: 0.29, w: 0.46, h: 0.21 };
+// upper-back region of the hoodie back still (fractions of the image box), between the shoulders, below the hood
+const CHEST = { x: 0.22, y: 0.27, w: 0.56, h: 0.257 };
 
-/** SIGNATURE — "the print is pulled": 4 squeegee passes across the chest, each reveals one ink layer of the graphic.
+/** SIGNATURE — "the print is pulled": 4 squeegee passes across the upper back, each reveals one ink layer of the graphic.
  *  Direction alternates so the blade never jumps back; scrolling back un-pulls it. Idle: a faint ink shimmer. */
 export default function Print() {
   const outer = useRef<HTMLElement>(null);
@@ -77,7 +77,7 @@ export default function Print() {
         </div>
         <div className="pr-right">
           <div className="pr-garment">
-            <img src={IMG("hoodie-front")} alt="Black hoodie on a screen-printing table" />
+            <img src={IMG("hoodie-back")} alt="Back of the black hoodie on a screen-printing table" />
             <div className="pr-chest" style={{ left: `${CHEST.x * 100}%`, top: `${CHEST.y * 100}%`, width: `${CHEST.w * 100}%`, height: `${CHEST.h * 100}%` }}>
               <svg ref={svg} viewBox={`0 0 ${VB.w} ${VB.h}`} aria-label="Printed graphic: KERB 07">
                 <defs>
