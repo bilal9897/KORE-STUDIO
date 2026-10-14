@@ -27,7 +27,8 @@ export default function Night() {
   const pcs = useRef<(HTMLElement | null)[]>([]);
 
   const layout = (dt = 0.016) => {
-    const s = st.current, p = s.p;
+    const s = st.current, p = s.p, sta = isStatic();
+    if (sta) s.c = (N - 1) / 2;
     // centre index travels from just before piece 0 to just past the last one, ending at p = .74
     const target = -0.7 + seg(p, 0, 0.74) * (N - 1 + 1.4);
     s.c += (target - s.c) * Math.min(1, dt * 7);
@@ -35,14 +36,14 @@ export default function Night() {
     const sway = Math.sin(s.t * 0.5) * 0.06;
     pcs.current.forEach((el, i) => {
       if (!el) return;
-      const th = (i - s.c - sway) * GAP;               // angle on the arc (deg); + = right side
+      const th = (i - s.c - sway) * (sta ? 17 : GAP);               // angle on the arc (deg); + = right side
       const a = Math.abs(th), k = clamp(a / WIN);
       const x = Math.sin((th * Math.PI) / 180) * RX;
       const y = (1 - Math.cos((th * Math.PI) / 180)) * 330 + Math.sin(s.t * 1.3 + i * 1.7) * 7 - 20;
       const sc = 0.78 + 0.5 * Math.pow(k, 1.15);
-      const flip = seg(-th, 14, 46);                    // 0 front .. 1 back, only on the far (left) side
+      const flip = sta ? 0 : seg(-th, 14, 46);                    // 0 front .. 1 back, only on the far (left) side
       const ry = th * 0.45 - 180 * flip;
-      const op = 1 - seg(a, WIN - 12, WIN + 8);
+      const op = sta ? 1 : 1 - seg(a, WIN - 12, WIN + 8);
       el.style.opacity = String(op);
       el.style.visibility = op < 0.01 ? "hidden" : "visible";
       el.style.zIndex = String(Math.round(a));
