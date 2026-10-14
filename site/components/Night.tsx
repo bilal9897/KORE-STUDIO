@@ -7,7 +7,7 @@ import { usePinProgress, tick, isStatic, seg, clamp, lenisVelocity, watchVisible
 const PIECES = NIGHT_SLOTS.slice(0, 6);
 const N = PIECES.length;
 const GAP = 30;        // degrees between neighbours on the arc
-const WIN = 54;        // pieces fade out beyond this angle
+const WIN = 46;        // pieces fade out beyond this angle
 const RX = 880;        // arc half-width factor
 
 /** GL17 curved row: six cut-out pieces float on a gentle arc. The row slides along the arc with scroll (both ways),
@@ -38,9 +38,9 @@ export default function Night() {
       if (!el) return;
       const th = (i - s.c - sway) * (sta ? 17 : GAP);               // angle on the arc (deg); + = right side
       const a = Math.abs(th), k = clamp(a / WIN);
-      const x = Math.sin((th * Math.PI) / 180) * RX;
-      const y = (1 - Math.cos((th * Math.PI) / 180)) * 330 + Math.sin(s.t * 1.3 + i * 1.7) * 7 - 20;
-      const sc = 0.78 + 0.5 * Math.pow(k, 1.15);
+      const x = Math.sin((th * Math.PI) / 180) * RX * 0.86;
+      const y = (1 - Math.cos((th * Math.PI) / 180)) * 250 + Math.sin(s.t * 1.3 + i * 1.7) * 7 - 20;
+      const sc = 0.74 + 0.22 * k;
       const flip = sta ? 0 : seg(-th, 14, 46);                    // 0 front .. 1 back, only on the far (left) side
       const ry = th * 0.45 - 180 * flip;
       const op = sta ? 1 : 1 - seg(a, WIN - 12, WIN + 8);

@@ -4,9 +4,8 @@ import { gsap } from "@/lib/gsap";
 import { IMG, PIECES, inrNote } from "../content";
 import { usePinProgress, isStatic, pad2 } from "../lib/motion";
 
-const SL = 7, SW = 520, SH = 650;
 
-/** M213 seven slices: the still is cut into 7 vertical slices that retract upward and re-form with the next piece.
+/** Two stacked cut-outs: the old piece slides out and fades, the new one fades in (opacity only, no masks).
  *  Scroll steps one piece at a time (both ways); idle: auto-advances every ~3 s. */
 export default function Lineup() {
   const outer = useRef<HTMLElement>(null);
@@ -18,19 +17,14 @@ export default function Lineup() {
   const show = (i: number) => {
     if (i === cur.current) return;
     cur.current = i; setIdx(i);
-    if (isStatic()) { stage.current!.querySelectorAll<HTMLElement>(".ls-a").forEach((n) => (n.style.backgroundImage = `url(${IMG(PIECES[i].front)})`)); return; }
-    const from = front.current, to = 1 - from;
-    front.current = to;
-    const url = `url(${IMG(PIECES[i].front)})`;
-    const slices = stage.current!.querySelectorAll<HTMLElement>(".ls-slice");
-    slices.forEach((s, k) => {
-      const A = s.children[from] as HTMLElement, B = s.children[to] as HTMLElement;
-      B.style.backgroundImage = url;
-      gsap.killTweensOf([A, B]);
-      gsap.set(B, { zIndex: 2 }); gsap.set(A, { zIndex: 1 });
-      gsap.fromTo(A, { clipPath: "inset(0% 0 0% 0)" }, { clipPath: "inset(0% 0 100% 0)", duration: 0.5, ease: "power3.in", delay: k * 0.045 });
-      gsap.fromTo(B, { clipPath: "inset(100% 0 0% 0)" }, { clipPath: "inset(0% 0 0% 0)", duration: 0.6, ease: "power3.out", delay: 0.28 + k * 0.045 });
-    });
+    const L = stage.current!.querySelectorAll<HTMLImageElement>(".ls-l");
+    if (isStatic()) { L[0].src = IMG(PIECES[i].front); return; }
+    const from = L[front.current], to = L[1 - front.current];
+    front.current = 1 - front.current;
+    gsap.killTweensOf([from, to]);
+    to.src = IMG(PIECES[i].front);
+    gsap.fromTo(to, { opacity: 0, x: 36, scale: 0.96 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, delay: 0.2, ease: "power2.out" });
+    gsap.to(from, { opacity: 0, x: -36, scale: 0.96, duration: 0.3, ease: "power2.in" });
   };
 
   usePinProgress(outer, (p) => {
@@ -65,12 +59,8 @@ export default function Lineup() {
           ))}
         </ol>
         <div ref={stage} className="ls-stage" role="img" aria-label={`${p.name}, front`}>
-          {Array.from({ length: SL }).map((_, k) => (
-            <div key={k} className="ls-slice" style={{ left: (SW / SL) * k, width: SW / SL + 0.6 }}>
-              {[0, 1].map((l) => (
-                <div key={l} className={l === 0 ? "ls-a" : "ls-b"} style={{ backgroundImage: l === 0 ? `url(${IMG(PIECES[0].front)})` : undefined, backgroundSize: `${SW}px ${SH}px`, backgroundPosition: `${-(SW / SL) * k}px 0`, clipPath: l === 0 ? undefined : "inset(100% 0 0 0)" }} />
-              ))}
-            </div>
+          {[0, 1].map((l) => (
+            <img key={l} className="ls-l" src={IMG(PIECES[0].front)} alt="" draggable={false} style={{ opacity: l === 0 ? 1 : 0 }} />
           ))}
         </div>
         <div className="ls-info">

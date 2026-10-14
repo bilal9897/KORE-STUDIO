@@ -7,6 +7,13 @@ import { isStatic } from "../lib/motion";
 /** PS14 tile grid, M211 wave-stagger from the top-left tile (replays when re-entered, either direction). */
 export default function Shop() {
   const root = useRef<HTMLElement>(null);
+  const head = useRef<HTMLDivElement>(null);
+  // the title fades out as it passes under the fixed logo, so the two never overlap at rest
+  useEffect(() => {
+    if (isStatic()) return;
+    const st = ScrollTrigger.create({ trigger: head.current, start: "top top+=130", end: "bottom top+=40", scrub: true, onUpdate: (self) => { if (head.current) head.current.style.opacity = String(1 - self.progress); }, onRefresh: (self) => { if (head.current) head.current.style.opacity = String(1 - self.progress); } });
+    return () => st.kill();
+  }, []);
   useEffect(() => {
     if (isStatic()) return;
     const tiles = Array.from(root.current!.querySelectorAll<HTMLElement>(".sh-tile"));
@@ -20,7 +27,7 @@ export default function Shop() {
   return (
     <section ref={root} id="shop" data-nav="light" className="shop">
       <div className="container-x">
-        <div className="sh-head">
+        <div ref={head} className="sh-head">
           <h2 className="k-h2">The full<br />drop</h2>
           <p>Eight tiles, six pieces. Hover a tile to see the back.</p>
         </div>

@@ -103,7 +103,7 @@ export default function Hero() {
     <section ref={outer} id="hero" data-nav="light" className="pin hero">
       <div className="pin-in">
         <svg ref={disc} className="hero-disc" viewBox="-100 -100 200 200" aria-hidden>
-          <path d="M0 0 L0 -100 A100 100 0 1 1 -100 0 Z" fill="#0E0F11" />
+          <path d="M0 0 L0 -100 A100 100 0 1 1 -100 0 Z" fill="#A49A74" />
           <path d="M0 0 L-100 0 A100 100 0 0 1 0 -100 Z" fill="none" stroke="#0E0F11" strokeWidth="1.5" strokeDasharray="3 5" transform="translate(-7 -7)" />
         </svg>
         <div className="hero-word" aria-hidden><span ref={wl}>KE</span><span ref={wr}>RB</span></div>
