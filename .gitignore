@@ -8,8 +8,7 @@ docs/SITES-LOG.md
 # recordings and final reel videos (never pushed)
 recordings/
 *.mov
-//*.mp4
-!raw/*.mp4
+/*.mp4
 /reels/
 
 # Python venvs (`npm run cutout` uses .venv-cutout/; recreate with the command in scripts/cutout.mjs)
@@ -57,6 +56,7 @@ raw-orig/
 public/frames/*
 !public/frames/.gitkeep
 *.mp4
+!raw/*.mp4
 *.webm
 .cache/
 
