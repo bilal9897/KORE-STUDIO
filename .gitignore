@@ -54,6 +54,7 @@ refs/
 raw/_orig/
 raw-orig/
 public/frames/*
+!public/frames/kerbcode-turn/
 !public/frames/.gitkeep
 *.mp4
 !raw/*.mp4
